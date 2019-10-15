@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+    <style>
+    .bac {
+        background-image: url({% static 'img/timg.jpg' %});
+        padding-bottom: 0px;
+        height: 500px ;
+        background-position: center center;
+        background-size: 100% 100%;
+    }
+    .price {
+        color: red;
+        font-style: revert;
+    }
+    </style>
+{% endblock %}
+{% block content %}
+
+    <div class="jumbotron bac">
+      <div class="container" >
+      </div>
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-3">
+          <h3>一汽</h3>
+          <p>D一汽解放 新J6P重卡 </p>
+            <p> 领航版 四季款  550马力 </p>
+            <p>6X4牵引车(CA4250P66K25T1A1E5)</p>
+            <p><b>厂商指导价：</b><span class="price">37.80万元</span></p></div>
+        <div class="col-md-3">
+          <h3>五菱</h3>
+          <p>五菱 荣光新卡 </p>
+            <p>1.8L 133马力 汽油 </p>
+            <p>2.45米双排栏板微卡(LZW1028STY)</p>
+            <p><b>厂商指导价：</b><span class="price">40.95万</span></p></div>
+        <div class="col-md-3">
+          <h3>江淮</h3>
+          <p>江淮 格尔发A5L中卡 </p>
+            <p> 麒麟版 220马力 4X2 </p>
+            <p>6.8米仓栅式载货车(HFC5181CCYP3)</p>
+            <p><b>厂商指导价：</b><span class="price">17.00万元</span></p></div>
+        <div class="col-md-3">
+          <h3>长安</h3>
+          <p>长安商用车 新星卡 </p>
+            <p>1.2L 98马力 汽油 </p>
+            <p>2.7米单排栏板微卡(SC1022DAAC5)</p>
+            <p><b>厂商指导价：</b><span class="price">3.09万元</span></p></div>
+        <div><p><a class="btn btn-default" href="/detail" role="button">查看更多 »</a></p></div>
+      <hr>
+
+      <footer>
+        <p>© 2016 Company, Inc.</p>
+      </footer>
+          </div>
+    </div> <!-- /container -->
+
+{% endblock %}

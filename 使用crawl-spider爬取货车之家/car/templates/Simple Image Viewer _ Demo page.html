@@ -1,0 +1,146 @@
+{% load my_tags %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0050)http://www.jq22.com/demo/image_viewer201707131142/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="imagetoolbar" content="no">
+    <title>Simple Image Viewer | Demo page</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="/static/Simple Image Viewer _ Demo page_files/style.css">
+    <style>
+        * {
+            padding: 0px
+        }
+
+        #gallery img {
+            border: none;
+        }
+
+        #gallery_nav {
+            float: left;
+            width: 112px;
+            text-align: center;
+        }
+
+        #gallery_nav a {
+            display: block;
+            height: 92px;
+        }
+
+        #gallery_output {
+            float: left;
+            width: 590px;
+            overflow: hidden;
+        }
+
+        #gallery_output img {
+            display: block;
+            margin: 20px auto 0 10px;
+        }
+
+        .zz {
+            border: 1px solid rgba(92, 92, 92, 1.00);
+        }
+
+        .img_size1 {
+            height: 80px;
+            width: 110px;
+        }
+
+        .img_size2 {
+            height: 329px;
+            width: 550px;
+        }
+    </style>
+    <script src="/static/Simple Image Viewer _ Demo page_files/jquery-1.10.2.js"></script>
+    <script src="/static/Simple Image Viewer _ Demo page_files/jquery.min.js"></script>
+    <script language="javascript">
+
+        $(document).ready(function () {
+            $("#gallery_output img").not(":first").hide();
+
+            $("#gallery a").click(function () {
+                $("#gallery a").removeClass('zz');
+                $(this).addClass("zz");
+                if ($("#" + this.rel).is(":hidden")) {
+                    $("#gallery_output img").slideUp();
+                    $("#" + this.rel).slideDown();
+                }
+            });
+        });
+
+    </script>
+</head>
+<body style="">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">卡车之家</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" placeholder="用户名" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="密码" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">登录</button>
+                </form>
+            </div><!--/.navbar-collapse -->
+        </div>
+    </nav>
+<div id="content" style="margin-top: 100px">
+
+    <div id="gallery">
+        <div id="gallery_nav">
+            {% for p in pic %}
+                <a rel= {{ 'img'|fil:forloop.counter }} href="javascript:;"><img class="img_size1" src={{ "/static/imgsLib/"|fil:p }}></a>
+            {% endfor %}
+        </div>
+        <div id="gallery_output">
+            {% for p in pic %}
+                {% if forloop.first %}
+                    <img id= {{ 'img'|fil:forloop.counter }} class="img_size2" src= {{ "/static/imgsLib/"|fil:p }}>
+                    {% else %}
+                    <img id={{ 'img'|fil:forloop.counter }} style="display:none;" class="img_size2" src={{ "/static/imgsLib/"|fil:p }}>
+                {% endif %}
+            {% endfor %}
+
+
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div></div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+</body>
+</html>
